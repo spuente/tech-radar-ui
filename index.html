@@ -4,21 +4,29 @@
   <meta charset="UTF-8">
   <title>Tech Radar App</title>
 
+  <script src="bower_components/jquery/dist/jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/jquery/dist/jquery.js"></script>
 
   <script src="app/app.js"></script>
-  <script src="app/modules/radar/controller.js"></script>
+
+  <!-- Radar -->
   <script src="app/modules/radar/module.js"></script>
+  <script src="app/modules/radar/controller.js"></script>
+
+  <!-- Techniques -->
+  <script src="app/modules/techniques/module.js"></script>
+  <script src="app/modules/techniques/model.js"></script>
 
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container" ng-controller="RadarCtrl">
     <h1>Tech Radar</h1>
-    <div ng-view>
-
+    <div>
+      <ul ng-repeat="technique in radar.techniques">
+        <li>{{technique.name}}</li>
+      </ul>
     </div>
   </div>
 </body>
