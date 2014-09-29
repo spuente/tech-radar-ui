@@ -1,6 +1,6 @@
 # Tech Radar App
 
-## Aplicación para crear un radar tecnológico personalizado.
+### Aplicación para crear un radar tecnológico personalizado.
 Incluye:
 - Técnicas
 - Herramientas
