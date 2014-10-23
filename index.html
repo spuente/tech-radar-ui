@@ -21,13 +21,9 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-  <div class="container" ng-controller="RadarCtrl">
+  <div class="container">
     <h1>Tech Radar</h1>
-    <div>
-      <ul ng-repeat="technique in radar.techniques">
-        <li>{{technique.name}}</li>
-      </ul>
-    </div>
+    <div ng-view></div>
   </div>
 </body>
 </html>

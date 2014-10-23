@@ -1,23 +1,13 @@
 'use strict';
 
 angular.module('techniques')
-.factory('techniquesModel', function(){
+.factory('techniquesModel', function($http, $q){
   return {
-    get: function(){
-      return [
-        {
-          name: 'Comply with OWASP Top 10',
-          status: 'Adopt'
-        },
-        {
-          name: 'TDD',
-          status: 'Adopt'
-        },
-        {
-          name: 'Waterfall model',
-          status: 'Hold'
-        }
-      ];
+    get: function() {
+      return $http.get('http://localhost:3000/techniques')
+      .then(function(response){
+        return response.data;
+      });
     }
   };
 });
