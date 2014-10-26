@@ -13,7 +13,7 @@ describe('Radar: model', function(){
 
   describe('get()', function() {
     it('should return all the elements from its model', function() {
-      var modelName = 'xyz';
+      var modelName = chance.string();
       var expectedElements = 'elements';
       var returnedElements;
       $httpBackend.expectGET('http://localhost:3000/' + modelName)
