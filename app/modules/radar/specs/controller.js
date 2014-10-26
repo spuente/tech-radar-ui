@@ -1,15 +1,18 @@
 'use strict';
 
 describe('radar: controller', function(){
-  var $scope;
-  var expectedTechniques = 'my techniques list';
-  var expectedLanguages = 'my languages list'
+  var $scope,
+      expectedTechniques,
+      expectedLanguages;
 
   beforeEach(module('radar'));
 
   beforeEach(inject(function($controller, $rootScope){
+    expectedTechniques = 'my techniques list';
+    expectedLanguages = 'my languages list';
 
     $scope = $rootScope.$new();
+
     $controller('RadarCtrl', {
       $scope: $scope,
       techniques: expectedTechniques,
@@ -28,22 +31,18 @@ describe('radar: controller', function(){
   })
 
   describe('Resolve', function(){
-    var $route;
-    var $httpBackend;
-    var $rootScope;
-    var techniquesModel;
-    var languagesModel;
-    var expectedTechniques;
-    var expectedLanguages;
+    var $route,
+        $httpBackend,
+        $rootScope,
+        model,
+        expectedTechniques,
+        expectedLanguages;
 
-    beforeEach(inject(function(_$route_, _$httpBackend_, _$rootScope_,
-                _techniquesModel_, _languagesModel_){
+    beforeEach(inject(function(_$route_, _$httpBackend_, _$rootScope_, _model_){
       $route = _$route_;
       $httpBackend = _$httpBackend_;
       $rootScope = _$rootScope_;
-      techniquesModel = _techniquesModel_;
-      languagesModel = _languagesModel_;
-
+      model = _model_;
       expectedTechniques = 'techniques';
       expectedLanguages = 'languages';
 
@@ -57,7 +56,7 @@ describe('radar: controller', function(){
 
     it('should resolve for techniques', function(){
       var returnedTechniques;
-      $route.routes['/'].resolve.techniques(techniquesModel)
+      $route.routes['/'].resolve.techniques(model)
       .then(function(techniques){
         returnedTechniques = techniques;
       });
@@ -67,7 +66,7 @@ describe('radar: controller', function(){
 
     it('should resolve for languages', function() {
       var returnedLanguages;
-      $route.routes['/'].resolve.languages(languagesModel)
+      $route.routes['/'].resolve.languages(model)
       .then(function(languages){
         returnedLanguages = languages;
       });
