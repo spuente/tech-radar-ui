@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('radar')
-.controller('RadarCtrl', function($scope, techniques){
+.controller('RadarCtrl', function($scope, techniques, languages){
 
   $scope.radar = {
-    techniques: techniques
+    techniques: techniques,
+    languages: languages
   }
 })
 .config(function($routeProvider){
@@ -15,6 +16,9 @@ angular.module('radar')
     resolve: {
       techniques: function(techniquesModel){
         return techniquesModel.get()
+      },
+      languages: function(languagesModel){
+        return languagesModel.get()
       }
     }
   })

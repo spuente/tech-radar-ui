@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('radar', ['ngRoute', 'techniques']);
+angular.module('radar', ['ngRoute', 'techniques', 'languages']);
