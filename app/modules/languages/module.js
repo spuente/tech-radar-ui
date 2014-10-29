@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('languages', ['ngRoute']);
+angular.module('languages', ['ngRoute', 'model']);

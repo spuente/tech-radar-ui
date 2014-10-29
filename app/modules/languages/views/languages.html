@@ -1,0 +1,44 @@
+<h2>Languages:</h2>
+<hr>
+<div class="row">
+  <div class="col-sm-3">
+    <a class="btn btn-primary" ng-href="#/languages-add">
+      <span class="glyphicon glyphicon-plus"></span>
+      Add
+    </a>
+  </div>
+</div>
+<br />
+
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr ng-repeat="language in languages">
+        <td>{{language.name}}</td>
+        <td>{{language.status}}</td>
+        <td>
+          <a class="btn btn-info" ng-href="#">
+            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="hidden-xs">
+              Edit
+            </span>
+          </a>
+        </td>
+        <td>
+          <a class="btn btn-danger" ng-href="#">
+            <span class="glyphicon glyphicon-remove"></span>
+            <span class="hidden-xs">
+              Delete
+            </span>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
