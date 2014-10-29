@@ -9,8 +9,8 @@ describe('Model', function(){
       $httpBackend;
 
   beforeEach(inject(function(_model_, _$httpBackend_){
-    model = _model_;
-    modelName = chance.string();
+    modelName = 'something';
+    model = _model_(modelName);
     $httpBackend = _$httpBackend_;
   }));
 
@@ -21,7 +21,7 @@ describe('Model', function(){
       $httpBackend.expectGET('http://localhost:3000/' + modelName)
       .respond(expectedElements);
 
-      model.get(modelName).then(function(elements) {
+      model.get().then(function(elements) {
         returnedElements = elements;
       });
       $httpBackend.flush();
@@ -36,7 +36,7 @@ describe('Model', function(){
       var element = '{' + chance.string() + '}';
       $httpBackend.expectPOST('http://localhost:3000/' + modelName, element)
         .respond(201, '');
-      model.post(modelName, element).then(function(response){
+      model.post(element).then(function(response){
         responseCode = response.status;
       });
       $httpBackend.flush();

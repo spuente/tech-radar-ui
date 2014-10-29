@@ -12,11 +12,30 @@ angular.module('techniques')
     controller: 'TechniquesCtrl',
     resolve: {
       techniques: function(model) {
-        return model.get('techniques')
+        return model('techniques').get()
       }
     }
   })
-  .when('/techniques-add', {
-    templateUrl: 'app/modules/techniques/views/techniques-add.html'
+  .when('/techniques/new', {
+    templateUrl: 'app/modules/techniques/views/techniques-form.html',
+    controller: '',
+    resolve: {
+      technique: function(model, $route){
+        model('techniques').get()
+        return {
+        };
+      }
+    }
+  })
+  .when('/techniques/edit/:id', {
+    templateUrl: 'app/modules/techniques/views/techniques-add.html',
+    controller: '',
+    resolve: {
+      technique: function(model, $route){
+        model('techniques').get(2)
+        return {
+        };
+      }
+    }
   });
 });

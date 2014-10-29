@@ -15,10 +15,10 @@ angular.module('radar')
     controller: 'RadarCtrl',
     resolve: {
       techniques: function(model) {
-        return model.get('techniques')
+        return model('techniques').get()
       },
       languages: function(model) {
-        return model.get('languages')
+        return model('languages').get()
       }
     }
   })

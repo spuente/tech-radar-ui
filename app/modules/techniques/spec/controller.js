@@ -52,8 +52,8 @@ describe('techniques: controller', function(){
     });
 
     it('should resolve for techniques add', function() {
-      expect($route.routes['/techniques-add'].templateUrl).
-      toEqual('app/modules/techniques/views/techniques-add.html');
+      expect($route.routes['/techniques/new'].templateUrl).
+      toEqual('app/modules/techniques/views/techniques-form.html');
     });
   });
 });
