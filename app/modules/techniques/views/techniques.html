@@ -1,4 +1,21 @@
 <h2>Techniques:</h2>
-<ul ng-repeat="technique in techniques">
-  <li>{{technique.name}}</li>
-</ul>
+<br />
+<div class="row">
+  <button class="btn btn-primary">Agregar nuevo</button>  
+</div>
+<br />
+
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Editar</th>
+    <th>Eliminar</th>
+  </tr>
+  <tr ng-repeat="technique in techniques">
+    <td>{{technique.name}}</td>
+    <td>{{technique.status}}</td>
+    <td><button class="btn btn-info">Editar</button></td>
+    <td><button class="btn btn-danger">Eliminar</button></td>
+  </tr>
+</table>
