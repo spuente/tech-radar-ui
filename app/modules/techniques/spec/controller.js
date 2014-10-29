@@ -41,7 +41,7 @@ describe('techniques: controller', function(){
       .respond(expectedTechniques);
     }));
 
-    it('should resolve for techniques', function(){
+    it('should resolve for techniques', function() {
       var returnedTechniques;
       $route.routes['/techniques'].resolve.techniques(model)
       .then(function(techniques){
@@ -49,6 +49,11 @@ describe('techniques: controller', function(){
       });
       $httpBackend.flush();
       expect(returnedTechniques).toEqual(expectedTechniques);
+    });
+
+    it('should resolve for techniques add', function() {
+      expect($route.routes['/techniques-add'].templateUrl).
+      toEqual('app/modules/techniques/views/techniques-add.html');
     });
   });
 });

@@ -11,9 +11,12 @@ angular.module('techniques')
     templateUrl: 'app/modules/techniques/views/techniques.html',
     controller: 'TechniquesCtrl',
     resolve: {
-      techniques: function(model){
+      techniques: function(model) {
         return model.get('techniques')
       }
     }
   })
+  .when('/techniques-add', {
+    templateUrl: 'app/modules/techniques/views/techniques-add.html'
+  });
 });
