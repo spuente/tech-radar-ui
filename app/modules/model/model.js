@@ -9,11 +9,10 @@ angular.module('model', [])
         return response.data;
       });
     },
-    post: function() {
-      return $http.post('http://localhost:3000/techniques',
-      '{name:abc, description:desc, status:hold}')
-      .then(function(code) {
-        return code;
+    post: function(name, element) {
+      return $http.post('http://localhost:3000/' + name, element)
+      .then(function(response) {
+        return response;
       });
     }
   };

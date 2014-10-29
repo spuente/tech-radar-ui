@@ -31,12 +31,12 @@ describe('Model', function(){
   });
 
   describe('post()', function() {
-    it('should save a new registry', function() {
+    it('should save a new element', function() {
       var responseCode;
-      $httpBackend.expectPOST('http://localhost:3000/techniques',
-        '{name:abc, description:desc, status:hold}')
+      var element = '{' + chance.string() + '}';
+      $httpBackend.expectPOST('http://localhost:3000/' + modelName, element)
         .respond(201, '');
-      model.post().then(function(response){
+      model.post(modelName, element).then(function(response){
         responseCode = response.status;
       });
       $httpBackend.flush();
