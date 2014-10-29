@@ -6,7 +6,7 @@ angular.module('radar')
   $scope.radar = {
     techniques: techniques,
     languages: languages
-  }
+  };
 })
 .config(function($routeProvider) {
   $routeProvider

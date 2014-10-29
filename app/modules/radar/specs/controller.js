@@ -35,23 +35,16 @@ describe('radar: controller', function(){
         $httpBackend,
         $rootScope,
         model,
-        expectedTechniques,
-        expectedLanguages;
+        expectedResponse;
 
     beforeEach(inject(function(_$route_, _$httpBackend_, _$rootScope_, _model_){
       $route = _$route_;
       $httpBackend = _$httpBackend_;
       $rootScope = _$rootScope_;
       model = _model_;
-      expectedTechniques = 'techniques';
-      expectedLanguages = 'languages';
+      expectedResponse = chance.string();
 
-      $httpBackend.whenGET('app/modules/radar/views/radar.html')
-      .respond('');
-      $httpBackend.whenGET('http://localhost:3000/techniques')
-      .respond(expectedTechniques);
-      $httpBackend.whenGET('http://localhost:3000/languages')
-      .respond(expectedLanguages);
+      $httpBackend.whenGET(/.*/).respond(200, expectedResponse);
     }));
 
     it('should resolve for techniques', function(){
@@ -61,7 +54,7 @@ describe('radar: controller', function(){
         returnedTechniques = techniques;
       });
       $httpBackend.flush();
-      expect(returnedTechniques).toEqual(expectedTechniques);
+      expect(returnedTechniques).toEqual(expectedResponse);
     });
 
     it('should resolve for languages', function() {
@@ -71,7 +64,7 @@ describe('radar: controller', function(){
         returnedLanguages = languages;
       });
       $httpBackend.flush();
-      expect(returnedLanguages).toEqual(expectedLanguages);
+      expect(returnedLanguages).toEqual(expectedResponse);
     });
   });
 });

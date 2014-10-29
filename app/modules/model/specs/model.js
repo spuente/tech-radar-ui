@@ -1,8 +1,8 @@
 'use strict';
 
-describe('Radar: model', function(){
+describe('Model', function(){
 
-  beforeEach(module('radar'));
+  beforeEach(module('model'));
 
   var model, $httpBackend;
 

@@ -25,13 +25,16 @@
 
   <script src="app/app.js"></script>
 
+  <!-- Model -->
+  <script src="app/modules/model/model.js"></script>
+
   <!-- Radar -->
   <script src="app/modules/radar/module.js"></script>
-  <script src="app/modules/radar/model.js"></script>
   <script src="app/modules/radar/controller.js"></script>
 
   <!-- Techniques -->
   <script src="app/modules/techniques/module.js"></script>
+  <script src="app/modules/techniques/controller.js"></script>
 
   <!-- Languages -->
   <script src="app/modules/languages/module.js"></script>
@@ -55,10 +58,10 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#">Techniques</a></li>
-          <li><a href="#">Tools</a></li>
-          <li><a href="#">Platforms</a></li>
-          <li><a href="#">Languages & Frameworks</a></li>
+          <li><a ng-href="/#/techniques">Techniques</a></li>
+          <li><a href="#/tools">Tools</a></li>
+          <li><a href="#/platforms">Platforms</a></li>
+          <li><a href="#/languages">Languages & Frameworks</a></li>
         </ul>
       </div>
     </div>

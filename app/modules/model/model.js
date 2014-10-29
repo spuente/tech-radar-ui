@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('radar')
+angular.module('model', [])
 .factory('model', function($http){
   return {
     get: function(name) {
