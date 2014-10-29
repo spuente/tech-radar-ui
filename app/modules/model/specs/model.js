@@ -4,16 +4,18 @@ describe('Model', function(){
 
   beforeEach(module('model'));
 
-  var model, $httpBackend;
+  var model,
+      modelName,
+      $httpBackend;
 
   beforeEach(inject(function(_model_, _$httpBackend_){
     model = _model_;
+    modelName = chance.string();
     $httpBackend = _$httpBackend_;
   }));
 
   describe('get()', function() {
     it('should return all the elements from its model', function() {
-      var modelName = chance.string();
       var expectedElements = 'elements';
       var returnedElements;
       $httpBackend.expectGET('http://localhost:3000/' + modelName)
@@ -25,6 +27,21 @@ describe('Model', function(){
       $httpBackend.flush();
 
       expect(returnedElements).toEqual(expectedElements);
+    });
+  });
+
+  describe('post()', function() {
+    it('should save a new registry', function() {
+      var responseCode;
+      $httpBackend.expectPOST('http://localhost:3000/techniques',
+        '{name:abc, description:desc, status:hold}')
+        .respond(201, '');
+      model.post().then(function(response){
+        responseCode = response.status;
+      });
+      $httpBackend.flush();
+
+      expect(responseCode).toEqual(201);
     });
   });
 });
