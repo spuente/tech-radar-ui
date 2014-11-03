@@ -52,8 +52,8 @@ describe('languages: controller', function(){
     });
 
     it('should resolve for languages add', function() {
-      expect($route.routes['/languages-add'].templateUrl).
-      toEqual('app/modules/languages/views/languages-add.html');
+      expect($route.routes['/languages/new'].templateUrl).
+      toEqual('app/modules/languages/views/languages-form.html');
     });
   });
 });

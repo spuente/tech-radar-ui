@@ -16,7 +16,7 @@ angular.module('languages')
       }
     }
   })
-  .when('/languages-add', {
-    templateUrl: 'app/modules/languages/views/languages-add.html'
+  .when('/languages/new', {
+    templateUrl: 'app/modules/languages/views/languages-form.html'
   });
 });

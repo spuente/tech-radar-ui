@@ -21,9 +21,16 @@ angular.module('techniques')
     controller: '',
     resolve: {
       technique: function(model, $route){
-        model('techniques').get()
-        return {
-        };
+        model('techniques').post(
+          {
+            "technique":
+            {
+              "name":"Registro 1",
+              "description": "Description 1",
+              "status": "Hold"
+            }
+          }
+        )
       }
     }
   })
