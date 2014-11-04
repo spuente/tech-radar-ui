@@ -45,7 +45,7 @@ describe('techniques form: controller', function(){
       expect($scope.techniques).toEqual({});
     });
 
-    it('should add a message when a user is created with valid data', function() {
+    it('should add a success message when a user is created with valid data', function() {
       $httpBackend.expectPOST('http://localhost:3000/techniques', validTechnique)
       .respond(201);
 
@@ -53,7 +53,7 @@ describe('techniques form: controller', function(){
       $scope.save();
       $httpBackend.flush();
 
-      expect($scope.addAlert).toHaveBeenCalled();
+      expect($scope.addAlert).toHaveBeenCalledWith('Technique created successfully!', 'success');
     });
   })
 
