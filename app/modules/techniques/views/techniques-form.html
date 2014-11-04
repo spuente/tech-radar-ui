@@ -5,33 +5,34 @@ data-ng-submit="save()">
 
   <div class="row form-group">
     <label for="name" class="col-sm-2 control-label">Name *</label>
-    <div class="col-sm-4">
+    <div class="col-sm-8 col-md-5">
       <input type="text" required class="form-control" id="name"
+      data-ng-model="techniques.name"
       placeholder="Enter name" maxlength="150">
     </div>
   </div>
 
   <div class="row form-group">
     <label for="status" class="col-sm-2 control-label">Status *</label>
-    <div class="col-sm-4">
+    <div class="col-sm-8 col-md-5">
       <input type="text" required class="form-control" id="description"
+      data-ng-model="techniques.status"
       placeholder="Enter status" maxlength="20">
     </div>
   </div>
 
   <div class="row form-group">
     <label for="description" class="col-sm-2 control-label">Description</label>
-    <div class="col-sm-4">
+    <div class="col-sm-8 col-md-5">
       <textarea class="form-control" id="description"
+      data-ng-model="techniques.description"
       placeholder="Enter Description"></textarea>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-sm-3">
-      <a class="btn btn-primary">
-        Save
-      </a>
+    <div class="col-sm-10 col-md-7">
+      <button class="btn btn-primary pull-right">Save</button>
     </div>
   </div>
 </form>

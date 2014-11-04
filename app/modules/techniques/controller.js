@@ -18,21 +18,8 @@ angular.module('techniques')
   })
   .when('/techniques/new', {
     templateUrl: 'app/modules/techniques/views/techniques-form.html',
-    controller: '',
-    resolve: {
-      technique: function(model, $route){
-        model('techniques').post(
-          {
-            "technique":
-            {
-              "name":"Registro 1",
-              "description": "Description 1",
-              "status": "Hold"
-            }
-          }
-        )
-      }
-    }
+    controller: 'TechniquesFormCtrl',
+    resolve: {}
   })
   .when('/techniques/edit/:id', {
     templateUrl: 'app/modules/techniques/views/techniques-add.html',
