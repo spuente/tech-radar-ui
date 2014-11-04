@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('techniques', ['ngRoute', 'model']);
+angular.module('techniques', ['ngRoute', 'ui.bootstrap', 'model']);

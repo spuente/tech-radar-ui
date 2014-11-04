@@ -3,9 +3,8 @@
 angular.module('techniques')
 .controller('TechniquesFormCtrl', function($scope, model){
 
-  $scope.techniques = {
-
-  };
+  $scope.techniques = {};
+  $scope.alerts = [];
 
   $scope.save = function() {
     model('techniques').post(
@@ -17,8 +16,20 @@ angular.module('techniques')
           "status": $scope.techniques.status
         }
       }
-    )
+    );
 
-    $scope.techniques = {}
+    $scope.techniques = {};
+    $scope.addAlert('Technique created successfully!', 'success');
+  };
+
+  $scope.addAlert = function(content, type) {
+    $scope.alerts.push({
+      content: content,
+      type: type
+    })
   }
+
+  $scope.removeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
 });

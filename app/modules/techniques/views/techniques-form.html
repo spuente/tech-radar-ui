@@ -2,6 +2,14 @@
 <hr>
 <form class="form-horizontal" role="form" novalidate
 data-ng-submit="save()">
+  <div class="row">
+    <div class="col-sm-10 col-md-7">
+      <alert class="pull-center" ng-repeat="alert in alerts" type="{{alert.type}}"
+      close="removeAlert($index)">
+        <div class="center-block">{{alert.content}}</div>
+      </alert>
+    </div>
+  </div>
 
   <div class="row form-group">
     <label for="name" class="col-sm-2 control-label">Name *</label>
