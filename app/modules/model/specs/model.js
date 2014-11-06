@@ -35,7 +35,7 @@ describe('Model', function(){
       var responseCode;
       var element = '{' + chance.string() + '}';
       $httpBackend.expectPOST('http://localhost:3000/' + modelName, element)
-        .respond(201, '');
+      .respond(201, '');
       model.post(element).then(function(response){
         responseCode = response.status;
       });

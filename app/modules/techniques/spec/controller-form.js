@@ -55,7 +55,30 @@ describe('techniques form: controller', function(){
 
       expect($scope.addAlert).toHaveBeenCalledWith('Technique created successfully!', 'success');
     });
-  })
+
+    it('should add a danger warning when a user is created with invalid data', function() {
+      $scope.techniques.name = 'Invalid technique';
+      $scope.techniques.description = 'Invalid description';
+      $scope.techniques.status = 'Invalid status';
+
+      var invalidTechnique = {
+        "technique": {
+          "name":"Invalid technique",
+          "description": "Invalid description",
+          "status": "Invalid status"
+        }
+      };
+      $httpBackend
+      .expectPOST('http://localhost:3000/techniques', invalidTechnique)
+      .respond(400);
+
+      spyOn($scope, 'addAlert');
+      $scope.save();
+      $httpBackend.flush();
+
+      expect($scope.addAlert).toHaveBeenCalledWith('Some fields contain errors.', 'danger');
+    });
+  });
 
   describe('Alert', function() {
     it('should allow adding a message when calling addAlert', function() {

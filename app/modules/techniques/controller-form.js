@@ -16,10 +16,15 @@ angular.module('techniques')
           "status": $scope.techniques.status
         }
       }
-    );
+    ).
+    success(function() {
+      $scope.addAlert('Technique created successfully!', 'success');
+    }).
+    error(function() {
+      $scope.addAlert('Some fields contain errors.', 'danger');
+    });
 
     $scope.techniques = {};
-    $scope.addAlert('Technique created successfully!', 'success');
   };
 
   $scope.addAlert = function(content, type) {

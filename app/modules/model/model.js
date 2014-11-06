@@ -12,10 +12,18 @@ angular.module('model', [])
         });
       },
       post: function(element) {
-        return $http.post('http://localhost:3000/' + name, element)
-        .then(function(response) {
-          return response;
+        return $http.post('http://localhost:3000/' + name, element).
+        success(function() {
+
+        }).
+        error(function(data, status) {
+
         });
+        // .then(function(response) {
+        //   return response;
+        // }, function(response) {
+        //   return response;
+        // });
       }
     }
   }
